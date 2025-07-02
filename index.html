@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <title>Ata'nın Web Sayfası</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        /* --- Temel Stil --- */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-color: #f0f4f8;
+            font-family: Arial, sans-serif;
+            color: #2c3e50;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        header {
+            width: 100%;
+            box-sizing: border-box;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-weight: bold;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #3498db;
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #3498db;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 20px 0 60px 20px;
+            padding: 0 10px;
+            text-align: left;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards;
+        }
+
+        .fade-in:nth-of-type(1) {
+            animation-delay: 0.3s;
+        }
+
+        .fade-in:nth-of-type(2) {
+            animation-delay: 0.6s;
+        }
+
+        .fade-in:nth-of-type(3) {
+            animation-delay: 0.9s;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        footer {
+            width: 100%;
+            box-sizing: border-box;
+            background-color: #34495e;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(44, 62, 80, 0.3);
+            transition: box-shadow 0.3s ease;
+        }
+
+        form {
+            max-width: 600px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+            text-align: left;
+            border: 1px solid #bdc3c7;
+            border-radius: 6px;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+
+        button {
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(41, 128, 185, 0.4);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #1c5980;
+            box-shadow: 0 6px 12px rgba(28, 89, 128, 0.6);
+            transform: scale(1.05);
+        }
+
+        p.fade-in i {
+            vertical-align: middle;
+        }
+
+        a.instagram-icon {
+            color: #e1306c;
+            font-size: 24px;
+            margin-left: 10px;
+            transition: color 0.3s ease;
+        }
+
+        a.instagram-icon:hover {
+            color: #b12d56;
+        }
+
+        /* --- Koyu Mod --- */
+        body.dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode header {
+            background-color: #1f1f1f;
+            color: #f0f0f0;
+            box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark-mode nav ul li a {
+            color: #f0f0f0;
+        }
+
+        body.dark-mode nav ul li a:hover {
+            color: #90caf9;
+        }
+
+        body.dark-mode nav ul li a::after {
+            background-color: #90caf9;
+        }
+
+        body.dark-mode main {
+            background-color: #222222;
+            box-shadow: 0 5px 20px rgba(255, 255, 255, 0.05);
+        }
+
+        body.dark-mode footer {
+            background-color: #1f1f1f;
+            color: #f0f0f0;
+            border-top: 1px solid #333;
+        }
+
+        body.dark-mode input,
+        body.dark-mode textarea {
+            background-color: #333;
+            color: #eee;
+            border: 1px solid #555;
+        }
+
+        body.dark-mode input:focus,
+        body.dark-mode textarea:focus {
+            border-color: #90caf9;
+        }
+
+        body.dark-mode button {
+            background-color: #90caf9;
+            color: #121212;
+            box-shadow: none;
+        }
+
+        body.dark-mode button:hover {
+            background-color: #648dae;
+            box-shadow: none;
+        }
+
+        body.dark-mode a {
+            color: #90caf9;
+        }
+
+        body.dark-mode a:hover {
+            text-decoration: underline;
+        }
+
+        body.dark-mode img {
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Koyu mod butonu sağ üstte */
+        #theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: white;
+            transition: color 0.3s ease;
+            z-index: 1000;
+        }
+
+        #theme-toggle:hover {
+            color: #90caf9;
+        }
+
+    </style>
+</head>
+<body>
+
+    <button id="theme-toggle" aria-label="Temayı değiştir" title="Koyu Mod Aç/Kapa">🌙</button>
+
+    <header>
+        <h1 class="fade-in">Ata Dinçel</h1>
+        <p class="fade-in">Geleceğin yazılımcısı</p>
+        <link rel="stylesheet" href="style.css">
+        <nav>
+            <ul>
+                <li><a href="index.html">Anasayfa</a></li>
+                <li><a href="hakkimda.html">Hakkımda</a></li>
+                <li><a href="projeler.html">Projeler</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2 class="fade-in">İlgi Alanlarım:</h2>
+        <ul class="fade-in">
+            <li>Yazılım</li>
+            <li>Bilgisayar Donanımı</li>
+            <li>Video Düzenleme</li>
+        </ul>
+
+        <h2 class="fade-in">Favori Web Sitesi</h2>
+        <p class="fade-in"><a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">YouTube'a Git</a></p>
+
+        <h2 class="fade-in">Benim bir fotoğrafım (örnek)</h2>
+        <img src="https://i.imgur.com/e0hr1fm.jpg" alt="Ata'nın Profil Fotoğrafı" width="200" height="200" style="border-radius: 50%; box-shadow: 0 0 10px rgba(0,0,0,0.3);" />
+    </main>
+
+    <footer>
+        &copy; 2025 Ata Dinçel - Tüm Hakları Saklıdır.
+    </footer>
+
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Sayfa yüklendiğinde kayıtlı tercihi uygula
+        if(localStorage.getItem('darkMode') === 'enabled') {
+            body.classList.add('dark-mode');
+            toggleBtn.textContent = '☀️';
+        }
+
+        toggleBtn.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+
+            if(body.classList.contains('dark-mode')) {
+                toggleBtn.textContent = '☀️';
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                toggleBtn.textContent = '🌙';
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        });
+    </script>
+
+</body>
+</html>
